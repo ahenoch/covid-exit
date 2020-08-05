@@ -2,7 +2,7 @@
 #20-08-04
 
 #install.packages("tidyverse")
-require(ggplot2) #Package for visualization and plotting of results
+require(ggplot2, quietly=TRUE) #Package for visualization and plotting of results
 require(dplyr, quietly=TRUE, warn.conflicts = FALSE) #Package needed for mutate the date column
 
 args<-commandArgs(TRUE)
@@ -40,32 +40,32 @@ new_entire <- ggplot(exit1, aes(x=entire, y=new)) +
   ggtitle(paste("Trajectory of Confirmed Cases (", date2 ,")")) +
   theme(plot.title = element_text(hjust=0.5))
 
-ggsave(filename = paste("../Plots/trajectory_of_confirmed_cases_", date2, ".pdf"),
+suppressWarnings(ggsave(filename = paste("../Plots/trajectory_of_confirmed_cases_", date2, ".png"),
        plot = new_entire,
-       height = 7 , width = 12)
+       height = 7 , width = 12))
 
-entire_date <- ggplot(exit1, aes(x=to, y=entire)) +
-  geom_line(aes(colour = factor(country)), size = 0.5) +
-  labs(colour = "Country") + 
-  ylab("Total Confirmed Cases") + 
-  xlab("Days") +
-  ggtitle(paste("Confirmed Cases (", date2 ,")")) +
-  theme(plot.title = element_text(hjust=0.5)) +
-  scale_x_date(date_breaks = "1 month", date_labels = "%Y-%m")
+#entire_date <- ggplot(exit1, aes(x=to, y=entire)) +
+#  geom_line(aes(colour = factor(country)), size = 0.5) +
+#  labs(colour = "Country") + 
+#  ylab("Total Confirmed Cases") + 
+#  xlab("Days") +
+#  ggtitle(paste("Confirmed Cases (", date2 ,")")) +
+#  theme(plot.title = element_text(hjust=0.5)) +
+#  scale_x_date(date_breaks = "1 month", date_labels = "%Y-%m")
 
-ggsave(filename = paste("../Plots/course_of_confirmed_cases_", date2, ".pdf"),
-       plot = entire_date,
-       height = 7 , width = 12)
+#suppressWarnings(ggsave(filename = paste("../Plots/course_of_confirmed_cases_", date2, ".pdf"),
+#       plot = entire_date,
+#       height = 7 , width = 12))
 
-new_date <- ggplot(exit1, aes(x=to, y=new)) +
-  geom_line(aes(colour = factor(country)), size = 0.5) +
-  labs(colour = "Country") + 
-  ylab("New Confirmed Cases (Last Week)") + 
-  xlab("Days") +
-  ggtitle(paste("New Confirmed Cases (", date2 ,")")) +
-  theme(plot.title = element_text(hjust=0.5)) +
-  scale_x_date(date_breaks = "1 month", date_labels = "%Y-%m")
+#new_date <- ggplot(exit1, aes(x=to, y=new)) +
+#  geom_line(aes(colour = factor(country)), size = 0.5) +
+#  labs(colour = "Country") + 
+#  ylab("New Confirmed Cases (Last Week)") + 
+#  xlab("Days") +
+#  ggtitle(paste("New Confirmed Cases (", date2 ,")")) +
+#  theme(plot.title = element_text(hjust=0.5)) +
+#  scale_x_date(date_breaks = "1 month", date_labels = "%Y-%m")
 
-ggsave(filename = paste("../Plots/course_of_new_cases_", date2, ".pdf"),
-       plot = new_date,
-       height = 7 , width = 12)
+#suppressWarnings(ggsave(filename = paste("../Plots/course_of_new_cases_", date2, ".pdf"),
+#       plot = new_date,
+#       height = 7 , width = 12))

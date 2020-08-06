@@ -11,7 +11,7 @@ This project aimes to make a visualization of the distance to the dangerous expo
 - Spain
 - Iran
 
-were taken into consideration to give a clear overview without to many different colors and graphs. As well as ask the question if the political actions like loosning in restirctions in the last weeks had an impact on the exponential growth in the United States and Germany.
+were taken into consideration to give a clear overview without to many different colors and graphs. As well as focus to and ask the question if the political actions like loosening in restirctions in the last weeks had an impact on the exponential growth in the United States and Germany.
 
 The changes in covid-19 are so quickly and diffcult to grasp that it is difficult to say are we in a phase of exponential growth or not yet/not anymore. Besides that there is not much reporting available that deal with the question when this exponential growth starts/ends.
 
@@ -27,31 +27,24 @@ The repository [covid-19](https://github.com/datasets/covid-19) manage the daily
 
 ## Preparations
 
-For using the standalone R-Script you have to install the package "tidyverse" to be able to plot your results with ggplot2.
-
 1. git clone https://github.com/ahenoch/covid-exit.git
-2. cd covid-exit/standalone/scripts
-3. Rscript covid-exit_standalone.R
-	- it is always run on the days between 2020-01-29 until today
-	- if you want a specific time range you need to use the timeline
+2. cd covid-exit/scripts
+3. Rscript covid-exit.R
 
-If you want to use the pipeline to have always the daily covid-19 data build into the plots you need to be on a linux maschine or otherwise able to run shell scripts. 
+If you want to use the script with the daily covid-19 data you need to clone the repository [covid-19](https://github.com/datasets/covid-19) to. 
 
 1. git clone https://github.com/datasets/covid-19.git
 2. git clone https://github.com/ahenoch/covid-exit.git
-3. cd covid-exit/pipeline/scripts
-4. ./covid-exit.sh 2020-01-29 #if you want to see the results from 02.02.2020 until now in steps of one day
-	-i is start date
-	-e is end date
-	-o is step size
-	-u is a switch, if given as argument only the start date is plotted
+3. cd covid-exit/scripts
+4. change 'total <- read.csv("../data/countries-aggregated.csv", header = T, sep = ",")' to the path of [covid-19](https://github.com/datasets/covid-19)
+5. Rscript covid-exit.R
 
 The csv tables are to be fount in the data folder and the plots in the plots folder.
 
 ## License
 
-[covid-19](https://github.com/datasets/covid-19) published their datasets under the [Public Domain and Dedication License](https://opendatacommons.org/licenses/pddl/1-0/).
+[covid-19](https://github.com/datasets/covid-19) published their datasets under the [Public Domain and Dedication [License](https://opendatacommons.org/licenses/pddl/1-0/).
 
-The originating data from the Johns Hopkins University [CSSEGISandData](https://github.com/CSSEGISandData/COVID-19) are licensed under the  Creative Commons Attribution 4.0 International (CC BY 4.0).
+The originating data from the Johns Hopkins University [CSSEGISandData](https://github.com/CSSEGISandData/COVID-19) are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0).
 
 And finally the files and datasets in the repository are licensed under the [GNU General Public License](https://github.com/ahenoch/covid-exit/blob/master/LICENSE)

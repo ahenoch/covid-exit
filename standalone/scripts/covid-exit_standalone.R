@@ -26,6 +26,8 @@ new <- key2[,3] - key1[,3]
 
 exit1 <- data.frame(from, to, country, new, entire)
 
+write.csv(exit1, file="../data/key_countries_aggregated_new_total.csv", row.names=FALSE)
+
 for(day in as.list(range)) {
   
   exit2 <- exit1[exit1$to <= day,]

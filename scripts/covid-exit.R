@@ -31,7 +31,7 @@ if (all(new >= 0)){print("All values are non-negatives!")} #check if negative va
 
 exit1 <- data.frame(from, to, country, new, entire) #create new table from the created vectors
 
-write.csv(exit1, file="../data/key_countries_aggregated_new_total.csv", row.names=FALSE) #export this table -> new data to use for science
+write.csv(exit1, file="../data/key_countries_aggregated_timerange.csv", row.names=FALSE) #export this table -> new data to use for science
 
 traj_list <- list() #empty plot list 1
 cont_us_list <- list() #empty plot list 2
